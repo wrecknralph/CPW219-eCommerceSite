@@ -32,6 +32,16 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
+                    @if (!string.IsNullOrEmpty(Context.Session.GetString("_UserName")))
+                    {                        
+                        @Context.Session.GetString("_UserName")
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Logout">Logout</a>
+                    }
+                    @if (string.IsNullOrEmpty(Context.Session.GetString("_UserName")))
+                    {
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Login">Login</a>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Create">Sign Up</a>
+                    }
                 </div>
             </div>
         </nav>

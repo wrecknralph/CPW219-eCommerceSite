@@ -4,11 +4,16 @@
 
 <h1 class="display-1">Welcome to Bradley's Gaming</h1>
 
+
+@if (@TempData["username"] != null){    
+        @TempData["username"]    
+}
+
 <div class="table-responsive">
     <table class="table">
         <thead>
             <tr>  
-                <th scope="col">Produt Type</th>
+                <th scope="col">Product Type</th>
                 <th scope="col">Typical Price</th>
             </tr>
         </thead>

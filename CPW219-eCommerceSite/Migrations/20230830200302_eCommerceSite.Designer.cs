@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CPW219_eCommerceSite.Migrations
 {
     [DbContext(typeof(UsersContext))]
-    [Migration("20230829175352_eCommerceSite")]
+    [Migration("20230830200302_eCommerceSite")]
     partial class eCommerceSite
     {
         /// <inheritdoc />
@@ -42,9 +42,12 @@ namespace CPW219_eCommerceSite.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UsersID");
+
+                    b.HasAlternateKey("UserName")
+                        .HasName("IX_SingeColumn");
 
                     b.ToTable("Users", (string)null);
                 });

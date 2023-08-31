@@ -39,9 +39,12 @@ namespace CPW219_eCommerceSite.Migrations
 
                     b.Property<string>("UserName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("UsersID");
+
+                    b.HasAlternateKey("UserName")
+                        .HasName("IX_SingeColumn");
 
                     b.ToTable("Users", (string)null);
                 });

@@ -1,0 +1,49 @@
+﻿@model CPW219_eCommerceSite.Models.Users
+
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h1>Login</h1>
+
+<hr />
+@using (Html.BeginForm("Login", "Users", FormMethod.Post))  
+{  
+    <fieldset>      
+  
+        @Html.AntiForgeryToken()  
+        @Html.ValidationSummary(true)  
+        @if (@ViewBag.Message != null)  
+        {  
+            <div style="border: 1px solid red;font-weight: bold;"> 
+                @ViewBag.Message  
+            </div>  
+        }        
+        <table>  
+            <tr>  
+                <td>@Html.LabelFor(a => a.UserName)</td>  
+                <td>@Html.TextBoxFor(a => a.UserName)</td>  
+                <td>@Html.ValidationMessageFor(a => a.UserName)</td>  
+            </tr>  
+            <tr>  
+                <td>  
+                    @Html.LabelFor(a => a.Password)  
+                </td>  
+                <td>  
+                    @Html.PasswordFor(a => a.Password)  
+                </td>  
+                <td>  
+                    @Html.ValidationMessageFor(a => a.Password)  
+                </td>  
+            </tr>  
+            <tr>  
+                <td></td>  
+                <td>
+                    <br />
+                    <input type="submit" value="Login" class="btn btn-primary" />
+                </td>  
+                <td></td>  
+            </tr>  
+        </table>  
+    </fieldset>  
+}  
